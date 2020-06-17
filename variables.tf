@@ -54,7 +54,7 @@ variable "bastion_record_name" {
 
 variable "bastion_launch_template_name" {
   description = "Bastion Launch template Name, will also be used for the ASG"
-  default     = "lt"
+  default     = "bastion-lt"
 }
 
 variable "bastion_ami" {
@@ -125,4 +125,9 @@ variable "allow_ssh_commands" {
   description = "Allows the SSH user to execute one-off commands. Pass 'True' to enable. Warning: These commands are not logged and increase the vulnerability of the system. Use at your own discretion."
   type        = string
   default     = ""
+}
+
+variable "bastion_iam_policy_name" {
+  description = "IAM policy name to create for granting the instance role access to the bucket"
+  default     = "BastionHost"
 }
